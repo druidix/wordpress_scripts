@@ -1,0 +1,9 @@
+{
+  "name": "wordpress-apps-script",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Google Apps Script sources for WordPress/Forminator integrations",
+  "devDependencies": {
+    "@types/google-apps-script": "^2.0.12"
+  }
+}
