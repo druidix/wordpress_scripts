@@ -26,7 +26,7 @@
 if (!defined('ABSPATH')) exit;
 
 const CG2FOLDER_NAME  = 'ifn_subs_2026'; // the Media Folder name to file into
-const CG2FOLDER_DEBUG = true;           // true → log decisions to the PHP error log
+const CG2FOLDER_DEBUG = false;           // true → log decisions to the PHP error log
 
 /**
  * Which admin-ajax action(s) count as a Contest Gallery frontend upload.
