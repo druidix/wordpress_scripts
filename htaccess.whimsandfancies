@@ -1,0 +1,261 @@
+# Kaushik - BEGIN AI bot block
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{THE_REQUEST} !^[A-Z]+\ /robots\.txt[?\ ]
+RewriteCond %{HTTP_USER_AGENT} (GPTBot|ChatGPT-User|ChatGPT\ Operator|OAI-SearchBot|ClaudeBot|Claude-Web|Claude-User|Claude-SearchBot|Claude-Code|anthropic-ai|PerplexityBot|Perplexity-User|MistralAI-User|DuckAssistBot|cohere-ai|cohere-training-data-crawler|AI2Bot|Ai2Bot-Dolma|Grok|DeepSeekBot|PanguBot|YouBot|quillbot|MyCentralAIScraperBot|Big\ ?Sur\ ?AI|DigitalOceanGenAICrawler|SBIntuitionsBot|LINER\ Bot|img2dataset|meta-externalagent|Amazonbot|CCBot|Bytespider) [NC]
+RewriteRule ^ - [F,L]
+</IfModule>
+# Kaushik - END AI bot block
+
+# BEGIN WpFastestCache
+# Modified Time: 27-08-26 23:08:27
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTPS} on
+RewriteCond %{HTTP_HOST} ^www.inktorrents.com
+# Start WPFC Exclude
+# End WPFC Exclude
+# Start_WPFC_Exclude_Admin_Cookie
+RewriteCond %{HTTP:Cookie} !wordpress_logged_in_[^\=]+\=soma
+# End_WPFC_Exclude_Admin_Cookie
+RewriteCond %{HTTP_HOST} ^www.inktorrents.com
+RewriteCond %{HTTP_USER_AGENT} !(facebookexternalhit|WP_FASTEST_CACHE_CSS_VALIDATOR|Twitterbot|LinkedInBot|WhatsApp|Mediatoolkitbot)
+RewriteCond %{HTTP_USER_AGENT} !(WP\sFastest\sCache\sPreload(\siPhone\sMobile)?\s*Bot)
+RewriteCond %{REQUEST_METHOD} !POST
+RewriteCond %{REQUEST_URI} !(\/){2,}
+RewriteCond %{THE_REQUEST} !(\/){2,}
+RewriteCond %{REQUEST_URI} \/$
+RewriteCond %{QUERY_STRING} !.+ [OR]
+RewriteCond %{QUERY_STRING} fbclid=
+RewriteCond %{HTTP:Cookie} !wordpress_logged_in
+RewriteCond %{HTTP:Cookie} !comment_author_
+RewriteCond %{HTTP:Profile} !^[a-z0-9\"]+ [NC]
+RewriteCond %{DOCUMENT_ROOT}/wp-content/cache/all/$1/index.html -f [or]
+RewriteCond /home/palebl6/public_html/whimsandfancies.com/wp-content/cache/all/$1/index.html -f
+RewriteRule ^(.*) "/wp-content/cache/all/$1/index.html" [L]
+</IfModule>
+<FilesMatch "index\.(html|htm)$">
+AddDefaultCharset UTF-8
+<ifModule mod_headers.c>
+FileETag None
+Header unset ETag
+Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+Header set Pragma "no-cache"
+Header set Expires "Mon, 29 Oct 1923 20:30:00 GMT"
+</ifModule>
+</FilesMatch>
+# END WpFastestCache
+# BEGIN GzipWpFastestCache
+<IfModule mod_deflate.c>
+AddType x-font/woff .woff
+AddType x-font/ttf .ttf
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/x-font-ttf
+AddOutputFilterByType DEFLATE x-font/ttf
+AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+AddOutputFilterByType DEFLATE font/opentype font/ttf font/eot font/otf
+</IfModule>
+# END GzipWpFastestCache
+RewriteEngine On
+RewriteCond %{REMOTE_ADDR} !^173\.247\.245\.8$
+RewriteCond %{HTTP_USER_AGENT} ^-?$ [NC]
+RewriteRule .* - [F,L]
+
+
+
+# force https - BEGIN -Soma
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+#Header always set Content-Security-Policy "upgrade-insecure-requests;"
+# force https - End -Soma
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+# Using /home/palebl6/public_html/php.ini file for error handling
+<IfModule mod_suphp.c>
+##SuPHP_ConfigPath /home/palebl6/public_html
+</IfModule>
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php8_module>
+   php_flag engine On
+   php_flag short_open_tag On
+   php_value precision 14
+   php_value output_buffering 4096
+   php_flag zlib.output_compression Off
+   php_flag implicit_flush Off
+   php_value serialize_precision 17
+   php_flag zend.enable_gc On
+   php_value max_execution_time 90
+   php_value max_input_time 90
+   php_value max_input_vars 3000
+   php_value memory_limit 1024M
+   php_value error_reporting E_ALL & ~E_DEPRECATED
+   php_flag display_errors On
+   php_flag display_startup_errors Off
+   php_flag log_errors Off
+   php_flag log_errors Off
+   php_flag ignore_repeated_errors On
+   php_flag ignore_repeated_source On
+   php_flag report_memleaks On
+   php_flag html_errors On
+   php_value error_log "error_log"
+   php_value variables_order "GPCS"
+   php_value request_order "GP"
+   php_flag register_argc_argv Off
+   php_flag auto_globals_jit On
+   php_value post_max_size 768M
+   php_value default_mimetype "text/html"
+   php_value include_path ".:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear"
+   php_value upload_max_filesize 10M
+   php_value default_socket_timeout 60
+   php_flag cli_server.color On
+   php_value date.timezone "America/Denver"
+   php_value SMTP "localhost"
+   php_value smtp_port 25
+   php_flag mail.add_x_header On
+   php_value odbc.defaultlrl 4096
+   php_value odbc.defaultbinmode 1
+   php_value ibase.timestampformat "%Y-%m-%d %H:%M:%S"
+   php_value ibase.dateformat "%Y-%m-%d"
+   php_value ibase.timeformat "%H:%M:%S"
+   php_value mysql.connect_timeout 60
+   php_flag mysql.trace_mode Off
+   php_value mysqli.default_port 3306
+   php_value pgsql.ignore_notice 0
+   php_value pgsql.log_notice 0
+   php_value bcmath.scale 0
+   php_value session.save_handler "files"
+   php_value session.save_path "/tmp"
+   php_flag session.use_cookies On
+   php_flag session.use_only_cookies On
+   php_value session.name "PHPSESSID"
+   php_flag session.auto_start Off
+   php_value session.cookie_lifetime 0
+   php_value session.cookie_path "/"
+   php_value session.serialize_handler "php"
+   php_value session.gc_probability 1
+   php_value session.gc_divisor 1000
+   php_value session.gc_maxlifetime 1440
+   php_value session.entropy_length 0
+   php_value session.cache_limiter "nocache"
+   php_value session.cache_expire 180
+   php_flag session.use_trans_sid Off
+   php_value session.hash_function "0"
+   php_value session.hash_bits_per_character 5
+   php_value url_rewriter.tags "a=href,area=href,frame=src,input=src,form=fakeentry"
+   php_value mssql.min_error_severity 10
+   php_value mssql.min_message_severity 10
+   php_flag mssql.compatability_mode Off
+   php_flag tidy.clean_output Off
+   php_flag soap.wsdl_cache_enabled On
+   php_value soap.wsdl_cache_dir "/tmp"
+   php_value soap.wsdl_cache_ttl 86400
+   php_value soap.wsdl_cache_limit 5
+</IfModule>
+<IfModule lsapi_module>
+   php_flag engine On
+   php_flag short_open_tag On
+   php_value precision 14
+   php_value output_buffering 4096
+   php_flag zlib.output_compression Off
+   php_flag implicit_flush Off
+   php_value serialize_precision 17
+   php_flag zend.enable_gc On
+   php_value max_execution_time 90
+   php_value max_input_time 90
+   php_value max_input_vars 3000
+   php_value memory_limit 1024M
+   php_value error_reporting E_ALL & ~E_DEPRECATED
+   php_flag display_errors On
+   php_flag display_startup_errors Off
+   php_flag log_errors Off
+   php_flag log_errors Off
+   php_flag ignore_repeated_errors On
+   php_flag ignore_repeated_source On
+   php_flag report_memleaks On
+   php_flag html_errors On
+   php_value error_log "error_log"
+   php_value variables_order "GPCS"
+   php_value request_order "GP"
+   php_flag register_argc_argv Off
+   php_flag auto_globals_jit On
+   php_value post_max_size 768M
+   php_value default_mimetype "text/html"
+   php_value include_path ".:/usr/php/54/usr/lib64:/usr/php/54/usr/share/pear"
+   php_value upload_max_filesize 10M
+   php_value default_socket_timeout 60
+   php_flag cli_server.color On
+   php_value date.timezone "America/Denver"
+   php_value SMTP "localhost"
+   php_value smtp_port 25
+   php_flag mail.add_x_header On
+   php_value odbc.defaultlrl 4096
+   php_value odbc.defaultbinmode 1
+   php_value ibase.timestampformat "%Y-%m-%d %H:%M:%S"
+   php_value ibase.dateformat "%Y-%m-%d"
+   php_value ibase.timeformat "%H:%M:%S"
+   php_value mysql.connect_timeout 60
+   php_flag mysql.trace_mode Off
+   php_value mysqli.default_port 3306
+   php_value pgsql.ignore_notice 0
+   php_value pgsql.log_notice 0
+   php_value bcmath.scale 0
+   php_value session.save_handler "files"
+   php_value session.save_path "/tmp"
+   php_flag session.use_cookies On
+   php_flag session.use_only_cookies On
+   php_value session.name "PHPSESSID"
+   php_flag session.auto_start Off
+   php_value session.cookie_lifetime 0
+   php_value session.cookie_path "/"
+   php_value session.serialize_handler "php"
+   php_value session.gc_probability 1
+   php_value session.gc_divisor 1000
+   php_value session.gc_maxlifetime 1440
+   php_value session.entropy_length 0
+   php_value session.cache_limiter "nocache"
+   php_value session.cache_expire 180
+   php_flag session.use_trans_sid Off
+   php_value session.hash_function "0"
+   php_value session.hash_bits_per_character 5
+   php_value url_rewriter.tags "a=href,area=href,frame=src,input=src,form=fakeentry"
+   php_value mssql.min_error_severity 10
+   php_value mssql.min_message_severity 10
+   php_flag mssql.compatability_mode Off
+   php_flag tidy.clean_output Off
+   php_flag soap.wsdl_cache_enabled On
+   php_value soap.wsdl_cache_dir "/tmp"
+   php_value soap.wsdl_cache_ttl 86400
+   php_value soap.wsdl_cache_limit 5
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
