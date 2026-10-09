@@ -39,8 +39,8 @@ add_action( 'wp_footer', function () {
             '.lb-outerContainer',                // Lightbox2
             '.elementor-lightbox',               // Elementor
             '.woocommerce-product-gallery',      // Woo gallery + zoom overlay
-            '.wp-lightbox-overlay',               // WordPress core lightbox
-            '.nivo-lightbox-overlay',            // Nivo Lightbox (backdrop + image)
+            '.wp-lightbox-overlay',              // WordPress core lightbox
+            '.nivo-lightbox-overlay'             // Nivo Lightbox (backdrop + image)
         ].join(',');
 
         window.addEventListener('contextmenu', function (e) {
@@ -54,6 +54,19 @@ add_action( 'wp_footer', function () {
                 e.preventDefault();
             }
         }, true); // capture phase, so it fires before lightbox handlers
+        
+        window.addEventListener('dragstart', function (e) {
+            var t = e.target;
+            if (!t || !t.closest) return;
+
+            var isImage = /^(IMG|PICTURE|CANVAS)$/.test(t.tagName) ||
+                          (t.tagName === 'A' && t.querySelector('img') !== null);
+            var inLightbox = t.closest(LIGHTBOX) !== null;
+
+            if (isImage || inLightbox) {
+                e.preventDefault();
+            }
+        }, true);
     })();
     </script>
     <?php
