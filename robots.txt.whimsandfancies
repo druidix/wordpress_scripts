@@ -35,12 +35,19 @@ User-agent: Meta-ExternalAgent
 User-agent: Amazonbot
 User-agent: CCBot
 User-agent: Bytespider
+User-agent: meta-webindexer
+User-agent: Meta-ExternalFetcher
+User-agent: Sogou web spider
+User-agent: Sogou Pic Spider
 Disallow: /
 
 # Everyone else (Googlebot, Bingbot, etc.)
 User-agent: *
 Crawl-delay: 15
 Disallow: /wp-admin/
+Disallow: /shop/cart/
+Disallow: /shop/*add_to_wishlist=
+Disallow: /shop/*add-to-cart=
 Allow: /wp-admin/admin-ajax.php
 
 Sitemap: https://www.inktorrents.com/wp-sitemap.xml

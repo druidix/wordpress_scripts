@@ -2,17 +2,10 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{THE_REQUEST} !^[A-Z]+\ /robots\.txt[?\ ]
-RewriteCond %{HTTP_USER_AGENT} (GPTBot|ChatGPT-User|ChatGPT\ Operator|OAI-SearchBot|ClaudeBot|Claude-Web|Claude-User|Claude-SearchBot|Claude-Code|anthropic-ai|PerplexityBot|Perplexity-User|MistralAI-User|DuckAssistBot|cohere-ai|cohere-training-data-crawler|AI2Bot|Ai2Bot-Dolma|Grok|DeepSeekBot|PanguBot|YouBot|quillbot|MyCentralAIScraperBot|Big\ ?Sur\ ?AI|DigitalOceanGenAICrawler|SBIntuitionsBot|LINER\ Bot|img2dataset|meta-externalagent|Amazonbot|CCBot|Bytespider) [NC]
+RewriteCond %{HTTP_USER_AGENT} (GPTBot|ChatGPT-User|ChatGPT\ Operator|OAI-SearchBot|ClaudeBot|Claude-Web|Claude-User|Claude-SearchBot|Claude-Code|anthropic-ai|PerplexityBot|Perplexity-User|MistralAI-User|DuckAssistBot|cohere-ai|cohere-training-data-crawler|AI2Bot|Ai2Bot-Dolma|Grok|DeepSeekBot|PanguBot|YouBot|quillbot|MyCentralAIScraperBot|Big\ ?Sur\ ?AI|DigitalOceanGenAICrawler|SBIntuitionsBot|LINER\ Bot|img2dataset|meta-externalagent|meta-webindexer|meta-externalfetcher|Sogou|Amazonbot|CCBot|Bytespider) [NC]
 RewriteRule ^ - [F,L]
 </IfModule>
 # Kaushik - END AI bot block
-
-# Kaushik - BEGIN IP block (high-load range, added 2026-10-15)
-<RequireAll>
-    Require all granted
-    Require not ip 57.141.20.0/24
-</RequireAll>
-# Kaushik - END IP block
 
 # BEGIN WpFastestCache
 # BEGIN WpFastestCache
