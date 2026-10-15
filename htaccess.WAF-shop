@@ -7,6 +7,14 @@ RewriteRule ^ - [F,L]
 </IfModule>
 # Kaushik - END AI bot block
 
+# Kaushik - BEGIN IP block (high-load range, added 2026-10-15)
+<RequireAll>
+    Require all granted
+    Require not ip 57.141.20.0/24
+</RequireAll>
+# Kaushik - END IP block
+
+# BEGIN WpFastestCache
 # BEGIN WpFastestCache
 # Modified Time: 06-08-26 11:58:02
 <IfModule mod_rewrite.c>
