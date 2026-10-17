@@ -7,6 +7,14 @@ RewriteRule ^ - [F,L]
 </IfModule>
 # Kaushik - END AI bot block
 
+# Kaushik - BEGIN scanner guard
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule (^|/)\.(?!well-known/) - [F,L]
+RewriteRule \.(sql|bak|old|orig|swp)$ - [F,L]
+</IfModule>
+# Kaushik - END scanner guard
+
 # BEGIN WpFastestCache
 # BEGIN WpFastestCache
 # Modified Time: 06-08-26 11:58:02
