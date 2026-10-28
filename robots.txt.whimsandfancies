@@ -39,6 +39,7 @@ User-agent: meta-webindexer
 User-agent: Meta-ExternalFetcher
 User-agent: Sogou web spider
 User-agent: Sogou Pic Spider
+User-agent: meta-externalads
 Disallow: /
 
 # Everyone else (Googlebot, Bingbot, etc.)
