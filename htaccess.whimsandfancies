@@ -19,6 +19,10 @@ RewriteRule ^ https://www.inktorrents.com%{REQUEST_URI} [R=301,L]
 RewriteEngine On
 RewriteRule (^|/)\.(?!well-known/) - [F,L]
 RewriteRule \.(sql|bak|old|orig|swp)$ - [F,L]
+RewriteRule \.(map|lock|sum|ya?ml|toml)$ - [F,L]
+RewriteRule (^|/)(config|swagger|openapi|appsettings|composer|package|package-lock|installed)\.json$ - [F,L]
+RewriteRule (^|/)(requirements\.txt|go\.mod|Gemfile(\.lock)?|docker-compose[^/]*|Dockerfile)$ - [F,L]
+RewriteRule ^(vendor|node_modules|_profiler|_ignition|telescope|kubernetes|www\.git)(/|$) - [F,L]
 </IfModule>
 # Kaushik - END scanner guard
 
