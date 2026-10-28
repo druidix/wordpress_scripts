@@ -1,0 +1,40 @@
+
+
+# force https - BEGIN -Soma
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+#Header always set Content-Security-Policy "upgrade-insecure-requests;"
+# force https - End -Soma
+
+# Kaushik - BEGIN scanner guard
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{QUERY_STRING} (^|&)s=[^&]*%F0 [NC]
+RewriteRule ^ - [F,L]
+RewriteRule (^|/)\.(?!well-known/) - [F,L]
+RewriteRule (^|/)(error_log|php_errorlog)$|\.log$ - [F,L]
+RewriteRule \.(sql|bak|old|orig|swp)$ - [F,L]
+RewriteRule \.(map|lock|sum|ya?ml|toml)$ - [F,L]
+RewriteRule (^|/)(config|swagger|openapi|appsettings|composer|package|package-lock|installed)\.json$ - [F,L]
+RewriteRule (^|/)(requirements\.txt|go\.mod|Gemfile(\.lock)?|docker-compose[^/]*|Dockerfile)$ - [F,L]
+RewriteRule ^(vendor|node_modules|_profiler|_ignition|telescope|kubernetes|www\.git)(/|$) - [F,L]
+</IfModule>
+# Kaushik - END scanner guard
+
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /chitchat/shop/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /chitchat/shop/index.php [L]
+</IfModule>
+
+# END WordPress
